@@ -2,7 +2,7 @@ name: Daily Test for Phrase Check
 
 on:
   schedule:
-    - cron: '0 8 * * *' # Executa diariamente às 8:00 UTC
+    - cron: '25 22 * * *' # Executa diariamente às 8:00 UTC
   workflow_dispatch:  # Permite execução manual
 
 jobs:
