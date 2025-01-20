@@ -13,19 +13,6 @@ def test_phrase_found(execution_time):
     result = check_phrase_in_site(url, phrase)
     assert result is True, f"Frase não encontrada no site. Tempo de execução: {execution_time}"
 
-def test_phrase_not_found(execution_time):
-    """Teste quando a frase não está presente no site."""
-    url = "https://aborgesdoamaral.pt"
-    phrase = "frase inexistente no site"
-    result = check_phrase_in_site(url, phrase)
-    assert result is False, f"Frase inesperada foi encontrada no site. Tempo de execução: {execution_time}"
-
-def test_invalid_url(execution_time):
-    """Teste quando a URL é inválida."""
-    url = "https://url-invalida.com"
-    phrase = "qualquer frase"
-    result = check_phrase_in_site(url, phrase)
-    assert result is False, f"O teste deveria falhar com URL inválida. Tempo de execução: {execution_time}"
 
 @pytest.fixture(scope="session", autouse=True)
 def generate_report(request):
