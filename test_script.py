@@ -9,7 +9,7 @@ def execution_time():
 def test_phrase_found(execution_time):
     """Teste quando a frase está presente no site."""
     url = "https://aborgesdoamaral.pt"
-    phrase = "tudo o que precisa para"
+    phrase = "TUDO O QUE"
     result = check_phrase_in_site(url, phrase)
     assert result is True, f"Frase não encontrada no site. Tempo de execução: {execution_time}"
 
