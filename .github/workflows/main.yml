@@ -1,0 +1,38 @@
+name: Daily Test for Phrase Check
+
+on:
+  schedule:
+    - cron: '0 8 * * *' # Executa diariamente às 8:00 UTC
+  workflow_dispatch:  # Permite execução manual
+
+jobs:
+  test-script:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          pip install requests beautifulsoup4 pytest
+
+      - name: Run tests and generate report
+        run: pytest -v test_script.py
+
+      - name: Upload test report
+        uses: actions/upload-artifact@v2
+        with:
+          name: test-report
+          path: test_report.html
+
+      - name: Check for test failures
+        if: failure()
+        run: |
+          echo "Testes falharam. Verifique o relatório para mais detalhes."
+          exit 1
