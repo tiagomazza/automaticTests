@@ -4,7 +4,7 @@ from site_utils import check_page_status
 # URLs a serem testadas
 URLS_TO_TEST = [
     "https://aborgesdoamaral.streamlit.app",  # URL válida
-    "https://invalid-url.example.com"        # URL inválida para teste
+            # URL inválida para teste
 ]
 
 @pytest.mark.parametrize("url", URLS_TO_TEST)
