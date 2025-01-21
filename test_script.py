@@ -3,7 +3,7 @@ import requests
 import datetime
 
 # Função de verificação de status
-def test_check_page_status(url):
+def check_page_status(url):
     try:
         response = requests.get(url)
         return response.status_code == 200
