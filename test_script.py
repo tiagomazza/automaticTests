@@ -1,3 +1,15 @@
+import pytest  # Certifique-se de que o pytest está importado
+import requests
+import datetime
+
+# Função de verificação de status
+def check_page_status(url):
+    try:
+        response = requests.get(url)
+        return response.status_code == 200
+    except requests.exceptions.RequestException:
+        return False
+
 @pytest.fixture(scope="session", autouse=True)
 def generate_report(request):
     """Gera um relatório em HTML com os resultados dos testes."""
