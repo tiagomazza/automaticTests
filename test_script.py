@@ -11,7 +11,7 @@ def test_phrase_found(execution_time):
     url = "https://aborgesdoamaral.streamlit.app"
     phrase = "Ponto"
     result = check_phrase_in_site(url, phrase)
-    assert result is True, f"Frase não encontrada no site. Tempo de execução: {execution_time}"
+    assert result is True, f"Frase encontrada no site. Tempo de execução: {execution_time}"
 
 
 @pytest.fixture(scope="session", autouse=True)
