@@ -8,8 +8,8 @@ def execution_time():
 
 def test_phrase_found(execution_time):
     """Teste quando a frase está presente no site."""
-    url = "https://www.aborgesdoamaral.pt"
-    phrase = "TUDO O QUE"
+    url = "https://aborgeadoamaral.streamlit.app"
+    phrase = "Ponto"
     result = check_phrase_in_site(url, phrase)
     assert result is True, f"Frase não encontrada no site. Tempo de execução: {execution_time}"
 
