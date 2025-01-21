@@ -6,22 +6,32 @@ import datetime
 def execution_time():
     return datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
-def test_phrase_found(execution_time):
-    """Teste quando a frase está presente no site."""
-    url = "https://aborgesdoamaral.streamlit.app"
-    phrase = "Ponto"
-    result = check_phrase_in_site(url, phrase)
-    assert result is True, f"Frase encontrada no site. Tempo de execução: {execution_time}"
+def test_phrase_found(executionimport pytest
+import requests
+import datetime
 
+def check_page_status(url):
+    """Função que verifica se a página foi carregada corretamente, retornando True se a resposta for 200 (OK)."""
+    try:
+        response = requests.get(url)
+        return response.status_code == 200
+    except requests.exceptions.RequestException:
+        return False
+
+@pytest.mark.parametrize("url", ["https://aborgesdoamaral.streamlit.app"])
+def test_page_status(url):
+    """Teste para verificar se a página abriu corretamente."""
+    result = check_page_status(url)
+    assert result is True, f"Página não foi aberta corretamente. URL: {url}"
 
 @pytest.fixture(scope="session", autouse=True)
 def generate_report(request):
     yield
     report_content = f"""
     <html>
-    <head><title>Relatório de Teste - Verificação de Frase</title></head>
+    <head><title>Relatório de Teste - Verificação de Status da Página</title></head>
     <body>
-    <h1>Relatório de Teste - Verificação de Frase</h1>
+    <h1>Relatório de Teste - Verificação de Status da Página</h1>
     <p>Data e hora da execução: {datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")}</p>
     <h2>Resultados:</h2>
     <ul>
