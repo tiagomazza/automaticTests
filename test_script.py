@@ -32,7 +32,7 @@ def generate_report(request):
     """
     
     for item in request.node.items:
-        result = "Passou" if item.rep_call.passed else "Falhou"
+        result = "Passou" if item.rep_call.passed else "Falhou"  # Acessar corretamente o resultado do item
         report_content += f"<li>{item.name}: {result}</li>"
     
     report_content += """
