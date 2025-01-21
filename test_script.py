@@ -5,7 +5,7 @@ import datetime
 # URLs a serem testadas
 URLS_TO_TEST = [
     "https://aborgesdoamaral.streamlit.app",  # URL válida
-    "https://aborgesdoamaral.pt"
+    "http://aborgesdoamaral.pt"
 ]
 
 @pytest.mark.parametrize("url", URLS_TO_TEST)
