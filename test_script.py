@@ -41,7 +41,7 @@ def generate_report(request):
     </html>
     """
 
- with open("test_report.html", "w") as f:
+    with open("test_report.html", "w") as f:
         f.write(report_content)
 
 
